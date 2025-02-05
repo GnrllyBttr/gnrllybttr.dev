@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="GnrllyBttr - Revolutionizing development with generally better tools and packages for developers for Flutter, React Native, and the Web."
+    />
+    <meta
+      name="keywords"
+      content="GnrllyBttr, Generally, Better, Development, Flutter, React Native, React, JS, Dart, Web Development, Developer Tools"
+    />
+    <meta name="author" content="Mohamed Mohamed" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GnrllyBttr" />
+    <meta
+      property="og:description"
+      content="Revolutionizing development with generally better tools and packages for developers."
+    />
+    <meta
+      property="og:image"
+      content="https://gnrllybttr.dev/images/og_image.png"
+    />
+    <meta property="og:url" content="https://gnrllybttr.dev/" />
+
+    <link rel="icon" type="image/png" href="iamges/square.png" />
+    <title>GnrllyBttr - Generally better tools</title>
+
+    <style>
+      :root {
+        --primary: #feac75;
+        --primary-dark: #e89b64;
+        --primary-light: #ffb989;
+        --win95-gray: #c0c0c0;
+        --win95-dark: #909090;
+        --win95-darker: #404040;
+        --win95-light: #ffffff;
+        --text: #000000;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+
+      body {
+        background: linear-gradient(45deg, #2b2b2b, #363636, #2b2b2b);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Add this new animation */
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Add this overlay pattern */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        pointer-events: none;
+        background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+          linear-gradient(-45deg, #000 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #000 75%),
+          linear-gradient(-45deg, transparent 75%, #000 75%);
+        background-size: 2px 2px;
+        background-position: 0 0, 1px 0, 1px -1px, 0px 1px;
+      }
+
+      /* Windows 95 Window */
+      .window {
+        background: var(--win95-gray);
+        border: 3px solid;
+        border-color: var(--win95-light) var(--win95-darker) var(--win95-darker)
+          var(--win95-light);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-bar {
+        background: var(--primary);
+        color: white;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+        cursor: move;
+        user-select: none;
+      }
+
+      .title-bar .title {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .title-bar-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+      }
+
+      .title-bar-controls {
+        margin-left: auto;
+        display: flex;
+        gap: 2px;
+      }
+
+      .title-bar-controls button {
+        width: 16px;
+        height: 14px;
+        border: 1px solid;
+        border-color: var(--win95-light) var(--win95-darker) var(--win95-darker)
+          var(--win95-light);
+        background: var(--win95-gray);
+        cursor: pointer;
+      }
+
+      /* Content Area */
+      .content {
+        padding: 10px;
+      }
+
+      .content-area {
+        padding: 20px;
+        background: var(--win95-gray);
+      }
+
+      .content-panel {
+        background: var(--win95-light);
+        border: 1px solid;
+        border-color: var(--win95-darker) var(--win95-light) var(--win95-light)
+          var(--win95-darker);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .content-panel p {
+        color: var(--text);
+        line-height: 1.4;
+      }
+
+      .logo {
+        max-width: 200px;
+        display: block;
+      }
+
+      /* Menu Bar */
+      .menu-bar {
+        background: var(--win95-gray);
+        border-bottom: 1px solid var(--win95-darker);
+        padding: 2px;
+      }
+
+      .menu-item {
+        background: transparent;
+        border: 1px solid transparent;
+        padding: 2px 6px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .menu-item:hover {
+        background: var(--primary);
+        color: var(--win95-light);
+        border-color: var(--win95-light) var(--win95-darker) var(--win95-darker)
+          var(--win95-light);
+      }
+
+      /* Desktop Icons */
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .desktop-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+        padding: 5px;
+      }
+
+      .desktop-icon:hover {
+        background: var(--primary);
+        color: var(--win95-light);
+      }
+
+      .desktop-icon img {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 5px;
+      }
+
+      /* Status Bar */
+      .status-bar {
+        border-top: 1px solid var(--win95-darker);
+        padding: 3px 5px;
+        display: flex;
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .status-bar-field {
+        border: 1px solid;
+        border-color: var(--win95-darker) var(--win95-light) var(--win95-light)
+          var(--win95-darker);
+        padding: 0 4px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+        .window {
+          margin: 20px auto;
+        }
+        .icon-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .menu-bar {
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Window -->
+    <div class="window" id="draggableWindow">
+      <div class="title-bar">
+        <span>GnrllyBttr</span>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize">-</button>
+          <button aria-label="Maximize">□</button>
+          <button aria-label="Close">×</button>
+        </div>
+      </div>
+
+      <div class="menu-bar">
+        <button class="menu-item">File</button>
+        <button class="menu-item">Tools</button>
+        <button class="menu-item">Help</button>
+      </div>
+
+      <div class="content-area">
+        <div class="content-panel">
+          <img src="images/logo.png" alt="GnrllyBttr Logo" class="logo" />
+          <p>
+            Revolutionizing development with generally better tools and packages
+            for developers.
+          </p>
+        </div>
+
+        <div class="icon-grid">
+          <a href="https://github.com/GnrllyBttr" class="desktop-icon">
+            <img src="images/github.svg" alt="" />
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://linkedin.com/company/GnrllyBttr"
+            class="desktop-icon"
+          >
+            <img src="images/linkedin.svg" alt="" />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <span>Ready</span>
+        <span class="status-bar-field">CPU Usage: 0%</span>
+        <span class="status-bar-field">RAM: 640K</span>
+      </div>
+    </div>
+
+    <script>
+      // Loading Animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const loadingScreen = document.querySelector(".loading-screen");
+        const loadingBar = document.querySelector(".loading-bar");
+
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+          progress += Math.random() * 10;
+          loadingBar.style.background = `linear-gradient(to right, var(--primary) ${progress}%, var(--win95-gray) ${progress}%)`;
+
+          if (progress >= 100) {
+            clearInterval(loadingInterval);
+            setTimeout(() => {
+              loadingScreen.style.display = "none";
+            }, 500);
+          }
+        }, 200);
+      });
+
+      // Window Dragging
+      const draggableWindow = document.getElementById("draggableWindow");
+      const titleBar = draggableWindow.querySelector(".title-bar");
+
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      titleBar.addEventListener("mousedown", (e) => {
+        isDragging = true;
+
+        // Get the current computed transform values
+        const style = window.getComputedStyle(draggableWindow);
+        const matrix = new DOMMatrix(style.transform);
+
+        // If this is the first drag (transform is still the initial -50% translate)
+        if (matrix.m41 !== 0 || matrix.m42 !== 0) {
+          // Get the current position including the transform
+          const rect = draggableWindow.getBoundingClientRect();
+          // Set initial position explicitly
+          draggableWindow.style.transform = "none";
+          draggableWindow.style.left = `${rect.left}px`;
+          draggableWindow.style.top = `${rect.top}px`;
+        }
+
+        // Calculate offset from the new position
+        const rect = draggableWindow.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          e.preventDefault();
+
+          // Calculate new position
+          let newLeft = e.clientX - offsetX;
+          let newTop = e.clientY - offsetY;
+
+          // Get viewport dimensions
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+
+          // Get window dimensions (including borders)
+          const windowWidth = draggableWindow.offsetWidth;
+          const windowHeight = draggableWindow.offsetHeight;
+
+          // Constrain to viewport bounds
+          // Left edge: can't be less than 0
+          // Right edge: can't be greater than viewport width minus window width
+          newLeft = Math.max(0, Math.min(newLeft, viewportWidth - windowWidth));
+
+          // Top edge: can't be less than 0
+          // Bottom edge: can't be greater than viewport height minus window height
+          newTop = Math.max(0, Math.min(newTop, viewportHeight - windowHeight));
+
+          // Apply position
+          draggableWindow.style.left = `${newLeft}px`;
+          draggableWindow.style.top = `${newTop}px`;
+
+          // Remove transform to prevent interference with positioning
+          draggableWindow.style.transform = "none";
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+
+      // Window Controls
+      document
+        .querySelectorAll(".title-bar-controls button")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            const action = button.getAttribute("aria-label").toLowerCase();
+            switch (action) {
+              case "minimize":
+                window.style.transform = "scale(0.1)";
+                break;
+              case "maximize":
+                window.style.transform = "scale(1)";
+                break;
+              case "close":
+                window.style.display = "none";
+                break;
+            }
+          });
+        });
+
+      // Status Bar Updates
+      setInterval(() => {
+        const cpuField = document.querySelector(".status-bar-field");
+        const usage = Math.floor(Math.random() * 100);
+        cpuField.textContent = `CPU Usage: ${usage}%`;
+      }, 1000);
+    </script>
+  </body>
+</html>

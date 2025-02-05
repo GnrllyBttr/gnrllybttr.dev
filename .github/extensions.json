@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ritwickdey.liveserver",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "vincaslt.highlight-matching-tag",
+    "naumovs.color-highlight",
+    "ms-vscode.js-debug",
+    "csstools.postcss",
+    "firefox-devtools.vscode-firefox-debug"
+  ]
+}
